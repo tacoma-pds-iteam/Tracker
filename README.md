@@ -29,7 +29,7 @@ node path/to/server/file.js path/to/config/file.json
 
 Then in your browser, navigate to the url you provided in the config file to connect to Tracker.
 
-Below is a few examples of Trackers features in action:
+Below are a few examples of Trackers features in action:
 - **Creating a new record and routing to staff (a new customer walks into our office)**
 	![](./resources/TrackerCreateRecord.gif)
 
@@ -39,7 +39,10 @@ Below is a few examples of Trackers features in action:
 - **Department staff checking customers in/out**
 	![](./resources/TrackerCheckin.gif)
 
-- **Multiple user chat**
+- **Reception departing customer (customer completed services, left office)**	
+	![](./resources/TrackerDepart.gif)
+	
+- **Multiple user group chat between all staff members logged in**
 	![](./resources/TrackerChat.gif)
 
 ## Support
