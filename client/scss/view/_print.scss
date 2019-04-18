@@ -1,0 +1,129 @@
+$black: #000;
+$white: #fff;
+$blue: #0072c6;
+
+body {
+  margin: 0;
+  font-family: PoppinsLight, sans-serif;
+  overflow-x: hidden;
+}
+* {
+  box-sizing: border-box;
+  font-smooth: always;
+  cursor: inherit;
+  pointer-events: none;
+  color: lighten($black, 20%);
+}
+div, p {
+  font-weight: 300;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+  margin: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: darken($blue, 10%);
+}
+input, select, textarea {
+  -webkit-appearance: none;
+  border: 0;
+  padding: 0;
+  box-shadow: 0;
+  background: transparent;
+  font-family: PoppinsLight, sans-serif;
+}
+textarea {
+  resize: none;
+  width: 100%;
+}
+
+body:before,
+.modal,
+.logo,
+nav.menu,
+.drop-header .change-status-icon,
+.drop-header .status-choices,
+button,
+.btn,
+.btn-lite,
+.comment i {
+  display: none;
+  visibility: hidden;
+}
+
+.bucket-header {
+  border: .25rem solid darken($blue, 10%);
+  margin-bottom: .5rem;
+  padding: .25rem .5rem;
+}
+.drop {
+  padding: 0 1rem 0 .5rem;
+  margin-bottom: 1rem;
+  page-break-inside: avoid;
+  &:nth-of-type(odd) {
+    border-top: .25rem solid $blue;
+    border-left: .25rem solid $blue;
+  }
+  &:nth-of-type(even) {
+    border-top: .25rem solid lighten($blue, 25%);
+    border-left: .25rem solid lighten($blue, 25%);
+  }
+  textarea {
+    height: auto;
+  }
+  .description {
+    font-size: 1.25rem;
+  }
+}
+.drop-header {
+  h3 {
+    font-weight: bold;
+    color: darken($blue, 10%);
+  }
+}
+.info-area {
+  font-size: .8rem;
+  span, time, select, input {
+    font-weight: bold;
+    font-size: .8rem;
+  }
+}
+.comments {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  &:before {
+    content: 'Comments:';
+    display: block;
+    padding: .125rem .25rem;
+    margin-bottom: .25rem;
+    width: 100%;
+    border: {
+      top: .125rem solid lighten($blue, 10%);
+      right: 0;
+      bottom: .125rem solid lighten($blue, 10%);
+      left: .125rem solid lighten($blue, 10%);
+    }
+  }
+}
+.comment {
+  padding: 0 .5rem;
+  margin-bottom: .25rem;
+  &:nth-of-type(odd) {
+    border-left: .125rem solid lighten($blue, 25%);
+  }
+  &:nth-of-type(even) {
+    border-left: .125rem solid lighten($blue, 10%);
+  }
+  .comment-author {
+    display: inline-block;
+    font-weight: bold;
+  }
+  time {
+    float: right;
+    font-style: italic;
+    color: rgba($black, .5);
+  }
+}

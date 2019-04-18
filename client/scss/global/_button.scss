@@ -1,0 +1,67 @@
+button, .btn {
+  background: $blue;
+  color: rgba($white, .9);
+  padding: .25em .5em .125em .5em;
+  cursor: pointer;
+  border: {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: .125em solid transparent;
+  }
+  transition: {
+    property: color, border, background, transform;
+    duration: .5s;
+    timing-function: $cubic;
+  }
+  a, a:visited, &:visited {
+    color: rgba($white, .9);
+  }
+  &:focus, &:hover {
+    background: darken($blue, 5%);
+    color: $white;
+    border-bottom: .125em solid rgba($black, .5);
+    transform: translateY(-.125em);
+    a, a:hover, a:focus {
+      color: $white;
+    }
+  }
+  &:active, &.active {
+    background: $green;
+    color: $white;
+    border-bottom: .125em solid rgba($black, .5);
+    a, a:active {
+      color: $white;
+    }
+  }
+  &.submit-btn {
+    float: right;
+  }
+  &.activate-department-btn {
+    flex-basis: unset !important;
+  }
+}
+.btn-lite {
+  color: $blue;
+  background: rgba($black, .1);
+  padding: .25em;
+  margin: -.5em 1em .25em;
+  cursor: pointer;
+  text-align: center;
+  transition: {
+    property: color, background;
+    duration: .2s;
+    timing-function: $cubic;
+  }
+  &:hover {
+    color: $green;
+    background: transparent;
+  }
+}
+.multi-address-btn {
+  display: none;
+}
+
+.standard-comments.btn {
+  background-color: lightslategray;
+}

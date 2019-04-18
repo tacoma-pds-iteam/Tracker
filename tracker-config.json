@@ -1,0 +1,28 @@
+{
+	"port": "<Your port number>",
+	"url": "<Your URL>",
+	"appid": "<Your registered app ID>",
+	"appsecret": "<Your registered app secret>",
+	"env": "<Your Accela environment>",
+	"db-name": "<Your MySQL Database name>",
+	"db-host": "<Your DB Hostname>",
+	"db-user": "<Your DB Username>",
+	"db-password": "<Your DB password>",
+	"em-service": "<Your email service>",
+	"em-user": "<Your email address>",
+	"em-pass": "<Your email password>",
+	"accela-module": "<Your Accela Module>",
+	"accela-record-type": "<Your Accela record type>",
+	"accela-record-type-id": "<Your Accela record type (id version)>",
+	"accela-username": "<Your Accela username>",
+	"accela-password": "<Your Accela password>",
+	"accela-agency": "<Your Accela Agency>",
+	"accela-scope": "<Your Accela app scope>",
+	"accela-reception-step": "<Your Accela 'Reception' workflow task step number>",
+	"accela-task-steps": ["<Your list of Accela workflow tasks in order of step number>"],
+	"accela-workflow-id": "<Your accela workflow ID>",
+	"accela-tsi": { 
+        "id": "<Your Accela TSI ID>",
+		"<Each Accela workflow Task>": "No"
+    }
+}

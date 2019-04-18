@@ -1,0 +1,57 @@
+body {
+  &:before {
+    content: 'v4.2 | Greyhound'; // version number and name
+    cursor: pointer;
+  }
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  margin: 0;
+  font-family: 'PoppinsLight', sans-serif;
+  background: url('bg.png'), $body-bg;
+  overflow-x: hidden;
+  &:before {
+    position: fixed;
+    bottom: .5rem;
+    left: .5rem;
+    font-size: .8rem;
+    color: $black;
+  }
+}
+* {
+  box-sizing: border-box;
+  font-smooth: always;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-backface-visibility: hidden;
+  &:focus {
+    outline: none;
+  }
+}
+div, p {
+  font-weight: 300;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+  margin: 0;
+}
+::-webkit-scrollbar {
+  width: .25rem;
+}
+::-webkit-scrollbar-button {
+  display: none;
+}
+::-webkit-scrollbar-track {
+  
+}
+::-webkit-scrollbar-thumb {
+  background: rgba($black, .4);
+}
+@include selection {
+  color: $white;
+  background: lighten($blue, 10%);
+  text-shadow: none;
+}

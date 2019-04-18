@@ -1,0 +1,98 @@
+input, select, textarea {
+  margin: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: none;
+  width: 100%;
+  max-width: 100%;
+  padding: .125rem .25rem;
+  background: rgba($black, .1);
+  font-family: PoppinsLight, sans-serif;
+  border: 0;
+  transition: {
+    property: background;
+    duration: .5s;
+    timing-function: $cubic;
+  }
+  &:focus {
+    background: rgba($blue, .1);
+  }
+}
+input[type="file"] {
+  position: absolute;
+  z-index: -1;
+  top: -100vh;
+}
+input[type="search"] {
+  background: transparent;
+  &:focus {
+    background: transparent;
+  }
+}
+input[type="checkbox"] {
+  cursor: pointer;
+  width: 1.5rem !important;
+  height: 1.5rem;
+  margin: .5rem 0 -.5rem !important;
+  &:hover, &:focus {
+    background: rgba($green, .1);
+  }
+  &:checked {
+    background: rgba($black, .5);
+  }
+}
+textarea {
+  resize: vertical;
+  max-height: 11.5rem;
+}
+label {
+  cursor: pointer;
+}
+
+// slider
+.onoffswitch {
+    position: relative; width: 80px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #FFFFFF; border-radius: 20px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 20px; padding: 0; line-height: 20px;
+    font-size: 14px; color: white; font-family: 'PoppinsLight', Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "Depart";
+    padding-left: 5px;
+    background-color: #FFFFFF; color: $blue;
+}
+.onoffswitch-inner:after {
+    content: "Chat";
+    padding-right: 5px;
+    background-color: #FFFFFF; color: $blue;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; width: 25px; margin: -2.5px;
+    background: $blue;
+    position: absolute; top: 0; bottom: 0;
+    right: 56px;
+    border: 2px solid #FFFFFF; border-radius: 20px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}

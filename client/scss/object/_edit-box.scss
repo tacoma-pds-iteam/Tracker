@@ -1,0 +1,24 @@
+.edit-box {
+  position: absolute;
+  top: -1000vh;
+  padding: .5rem;
+  background: rgba($white, .9);
+  box-shadow: -.125rem .25rem 1rem rgba($black, .1);
+  width: 600px;
+  max-width: 90%;
+  z-index: 20;
+  opacity: 0;
+  pointer-events: none;
+  transition: {
+    property: opacity;
+    duration: .2s;
+    timing-function: $cubic;
+  }
+  &.open {
+    opacity: 1;
+    pointer-events: inherit;
+  }
+}
+.editable {
+  cursor: alias;
+}

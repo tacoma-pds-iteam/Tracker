@@ -1,0 +1,189 @@
+.chat-bucket {
+	[data-tooltip=true]:hover:after {
+		top: 1rem;
+		left: -1rem;
+	}
+	ul {
+		list-style: none;
+		padding-left: 0;
+		margin-top: 0;
+	}
+	.logged-in-users {
+		overflow: unset;
+	}
+	.drop-area {
+		overflow:hidden !important;
+		border: none !important;
+		padding: 0 0 !important;
+	}
+	.chat-messages {
+		border:1px solid black;
+		padding-bottom: 5px;
+		overflow: auto;
+		min-height: 10rem;
+		max-height: 10rem;	
+		
+	}
+	.stat-drop-area {
+		&.open {
+			min-height: 25rem;
+			.stat-content {
+				max-height: 25rem;
+			}
+		}
+	}
+	.stat-content {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		height: 25rem;
+		text-align: center;		
+
+		.chart-wrapper {
+		display: flex;
+		flex-basis: 100%;
+		min-height: 5rem;
+		align-items: center;
+			.stat-item {
+			flex-basis: 50%;
+			padding: 15px;
+				span {
+					justify-content: center;
+					background-color: lightgray;
+					border: 1px solid gray;
+					font-weight: bold;
+					font-size: 24pt;
+					padding: 10px;
+				}
+			}
+		}
+		
+	}
+	#chat-message-box {
+		margin-top: .5rem;
+	}
+	.chat-messages li {
+			padding-left: 5px;
+	}
+	#no-chats {
+		text-align: center;
+		padding: 2px;
+		i {
+			font-size: 50pt;
+			color: #cfcfcf;
+		}
+	}
+
+	.chat, .activity {
+		&-admin{
+		color: black;
+		}
+		&-fire{
+		color: darkred;
+		}
+		&-site{
+		color: blue;
+		}
+		&-permit{
+		color: green;
+		}
+		&-historic{
+		color: brown;
+		}
+		&-land{
+		color: darkgoldenrod;
+		}
+		&-traffic{
+		color: violet;
+		}
+		&-building, &-buildingc{
+		color: red;
+		}
+		&-reception{
+		color: deeppink;
+		}
+		&-application{
+		color: $green;
+		}
+		&-auto{
+		color: darkslategray;
+		font-style: italic;
+		font-size: small;
+		&-hide{
+			display: none;
+		}
+		}
+	}
+	.activity-log {
+		overflow: hidden;
+		&.open {
+			min-height: 15rem;
+			max-height: 15rem;
+		}
+		ul {
+			overflow-y: auto !important;
+			font-size: small;
+			min-height: 10rem;
+			max-height: 10rem;
+			border: 1px solid;
+		}
+	}
+	
+	.avatar-circle {
+	  width: 3rem;
+	  height: 3rem;
+	  text-align: center;
+	  border-radius: 50%;
+	  -webkit-border-radius: 50%;
+	  -moz-border-radius: 50%;
+	  display: inline-grid;
+	  margin: 10px;
+	  &-admin{
+	    background-color: black;
+		}
+		&-fire{
+		background-color: darkred;
+		}
+		&-site{
+		background-color: blue;
+		}
+		&-permit{
+		background-color: green;
+		}
+		&-historic{
+		background-color: brown;
+		}
+		&-land{
+		background-color: darkgoldenrod;
+		}
+		&-traffic{
+		background-color: violet;
+		}
+		&-building, &-buildingc{
+		background-color: red;
+		}
+		&-reception{
+		background-color: deeppink;
+		}
+		&-application{
+		background-color: $green;
+		}
+
+		.initials {
+		  position: relative;
+		  font-size: 30px; 
+		  line-height: 50px;
+		  color: #fff;
+		  font-weight: bold;
+		}
+		.tooltip-name {
+			display: none;
+		}
+
+		:hover {
+			cursor: pointer;
+		}
+	}
+}
+
+

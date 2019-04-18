@@ -1,0 +1,58 @@
+// base colors
+// $black: #000;
+// $white: #fff;
+
+
+
+// color palate
+// $blue: #0072c6;
+$blue: #164080;
+$lightblue: rgb(103, 155, 240);
+$medblue: #2366CC;
+$gray: #cfcfcf;
+$bluegray: #7e909a;
+$orange2: #ea6a47;
+$white: #f1f1f1;
+$black: #2f363f;
+$red2: rgba(198,0,0,.6);
+$neongreen: #0fc200;
+
+$green: #00a51d;
+$yellow: #e2ff00;
+$orange: #d68200;
+$red: #c60000;
+$purple: #9000b3;
+$pink: #F21EB2;
+
+// area styles
+$body-bg: $gray;
+// object styles
+$drop-header-bg: $blue;
+$drop-bg: $white;
+// timing functions
+$cubic: cubic-bezier(.5, .08, .24, 1);
+
+// breakpoints
+$phone: 20em; /* 320/16 */
+$tablet: 48em; /* 768/16 */
+$desktop: 75em; /* 1200/16 */
+
+// shadows
+$def-shadow: 0 .02rem .2rem rgba($black, .6);
+$hover-shadow: 0 .5rem 1rem rgba($black, .75);
+// $dark-shadow: 0 0 2rem $black;
+$dark-shadow: 0 0 1rem $black;
+$light-shadow: 0 0 1rem rgba($black, .5);
+$btn-text-shadow: 1px 1px .125rem $black;
+$offset-shadow: 1px .125rem .25rem rgba($black, .5);
+
+$icon-color-1: lighten(#710a77, 25%);
+$icon-color-2: lighten(#032ab9, 25%);
+$icon-color-3: lighten(#015d67, 25%);
+$icon-color-4: lighten(#074a0c, 25%);
+$icon-color-5: lighten(#8a9a00, 25%);
+$icon-color-6: lighten(#b16507, 25%);
+$icon-color-7: lighten(#b72100, 25%);
+$icon-color-8: lighten(#8a0530, 25%);
+$icon-color-9: rgba($white, .9);
+$icon-color-10: rgba(146,239,13,.9);

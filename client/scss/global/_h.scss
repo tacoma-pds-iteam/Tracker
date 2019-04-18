@@ -1,0 +1,15 @@
+h1, h2, h3 {
+  
+}
+h4 {
+  font-weight: 700;
+  padding: .25rem .25rem 0 1rem;
+  margin-bottom: .5rem;
+  letter-spacing: 3px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba($white, .25) 5%,
+    transparent
+  );
+}

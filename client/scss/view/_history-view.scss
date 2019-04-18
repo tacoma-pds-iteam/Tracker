@@ -1,0 +1,15 @@
+.history-view {
+  .reception-bucket, .review-bucket, .departed-bucket .bucket-header {
+    display: none !important;
+  }
+  .depart-drop-area {
+    display: grid;
+    grid: {
+      column-gap: 1rem;
+      template: {
+        columns: repeat(3, 1fr);
+        rows: auto;
+      }
+    }
+  }
+}

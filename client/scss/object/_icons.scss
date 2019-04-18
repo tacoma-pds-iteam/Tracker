@@ -1,0 +1,108 @@
+.fa-car {
+  color: rgba($icon-color-1, .9);
+}
+.fa-home {
+  color: rgba($icon-color-2, .9);
+}
+.fa-truck {
+  color: rgba($icon-color-3, .9);
+}
+.fa-id-card {
+  color: rgba($icon-color-4, .9);
+}
+.fa-map {
+  color: rgba($icon-color-5, .9);
+}
+.fa-history {
+  color: rgba($icon-color-6, .9);
+}
+.fa-fire {
+  color: rgba($icon-color-7, .9);
+}
+.fa-building, .fa-warehouse {
+  color: rgba($icon-color-8, .9);
+}
+.fa-user {
+  color: rgba($icon-color-9, .9);
+  
+}
+.application-services-icon, .fa-id-card-alt {
+    color:rgba($icon-color-10, .9);
+}
+
+.comment {
+  .fa-car {
+    color: rgba($icon-color-1, .25) !important;
+  }
+  .fa-home {
+    color: rgba($icon-color-2, .25) !important;
+  }
+  .fa-truck {
+    color: rgba($icon-color-3, .25) !important;
+  }
+  .fa-id-card-o {
+    color: rgba($icon-color-4, .25) !important;
+  }
+  .fa-map {
+    color: rgba($icon-color-5, .25) !important;
+  }
+  .fa-history {
+    color: rgba($icon-color-6, .25) !important;
+  }
+  .fa-fire {
+    color: rgba($icon-color-7, .25) !important;
+  }
+  .fa-building {
+    color: rgba($icon-color-8, .25) !important;
+  }
+  .fa-user {
+    color: rgba($black, .25) !important;
+  }
+  .application-services-icon {
+    color:rgba($icon-color-10, .9) !important;
+  }
+}
+
+i {
+  position: relative;
+  display: inline-block;
+  // border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+
+  .tooltip {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+
+}
+
+i:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}

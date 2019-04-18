@@ -1,0 +1,35 @@
+.site-footer {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  box-shadow: 0 0 2rem $black;
+  z-index: 5;
+  color: $white;
+  background: linear-gradient(
+    to right,
+    darken($blue, 15%),
+    darken($blue, 25%)
+  );
+  .footer-group {
+    margin: 0 1rem;
+    ul {
+      @include pseudo-list;
+      margin-left: 1rem;
+      li {
+        text-shadow: 1px 1px $black;
+        a {
+          color: $white;
+          &:hover, &:focus, &:visited {
+            color: rgba($white, .9);
+          }
+        }
+        i {
+          color: rgba($white, .5);
+        }
+      }
+    }
+  }
+}

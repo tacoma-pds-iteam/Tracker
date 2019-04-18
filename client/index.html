@@ -1,0 +1,358 @@
+<!DOCTYPE HTML>
+<!--TRACKER: A Walk-in Customer Dashboard utilizing ACCELA Construct API's.
+	Description: This page displays the current walkin records created for
+	The City of Tacoma's Planning & Development Services. This page utilizes
+	Accela's API's and handles the creation and updates of the Walk-in workflow.
+
+	**NOTE** This is the SUPP version **NOTE**
+
+	Created by:
+		- Casey Jamrog, City of Tacoma PDS cjamrog@cityoftacoma.org
+		- Nathan Connors, City of Tacoma PDS nconnors@cityoftacoma.org
+
+	Icons were provided by FontAwesome.
+
+	Last update: 4.4.2019 -->
+<html lang="en">
+<head>
+	<title>*SUPP* Tracker</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+	<meta name="theme-color" content="#ffffff">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/csshake/1.5.3/csshake-slow.min.css">
+	<link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+
+<body class="not-logged-in">
+	<section class="standard-comment-list-wrap">
+		<span class="associated-record-number"></span>
+		<ul class="standard-comment-list"></ul>
+	</section>
+	<section class="error-message">
+		<i class="fas fa-sync-alt"></i> An error has occurred. Click here to refresh the page.
+	</section>
+	<section class="modals">
+		<div class="behind"></div>
+		<article class="modal login-modal">
+			<div class="close"><i class="fa fa-times" aria-hidden="true"></i></div>
+			<header class="modal-header">
+				<h2>Login</h2>
+			</header>
+			<form class="login-form" autocomplete="off">
+				<input type="text" placeholder="username" id="un" name="username">
+				<button class="login-submit-btn btn">Log in</button>
+			</form>
+		</article>
+		<!-- <article class="modal calendar-modal">
+			<div class="close"><i class="fa fa-times" aria-hidden="true"></i></div>
+			<header class="modal-header">
+				<h2>Change Date</h2>
+			</header>
+			<input type="date" class="date-select">
+			<button class="btn submit-btn"><i class="fa fa-check" aria-hidden="true"></i> Submit</button>
+		</article> -->
+		<article class="modal department-modal">
+			<div class="close"><i class="fa fa-times" aria-hidden="true"></i></div>
+			<header class="modal-header">
+				<h2>Select Department</h2>
+			</header>
+			<p>Current department:</p>
+			<select class="department-select"></select>
+			<button class="btn submit-btn"><i class="fa fa-check" aria-hidden="true"></i> Submit</button>
+		</article>
+		<article class="modal info-modal">
+			<div class="close"><i class="fa fa-times" aria-hidden="true"></i></div>
+			<header class="modal-header">
+				<h2>Welcome To Tracker!</h2>
+			</header>
+			<br>
+			<p>This is the help and information section to make sure you're up to speed on how to use Tracker and learn about the latest features. This section will be regularly updated with the release notes. See below for the latest news!</p><br>
+			<p><h3>Introducing Tracker:Greyhound!</h3><br><img src="greyhound.png"><br>We named Tracker Version 4 after the greyhound to represent speed and the new color scheme we introduced. This version brings a lot of new improvements to the Tracker experience, including an updated look, an instant chat feature to quickly chat with other users logged into Tracker, and a built-in email feature to notify staff of arriving customers. Click the features below to learn more: </p>
+			<p><br>Last updated: <b>4/4/2019</b></p>
+			<div class="accordion"><i class="fas fa-plus"></i><b>Update Log</b>
+			</div>
+			<div class="accordion-panel">
+			  <p>Check here for a list of the changes we've made to Tracker:</p>
+			  <p><ul>	
+			  		<li>Version 4.2 (Updated 4/4/2019)
+			  			<ul>
+			  				<li>Minor code improvements for Tracker to be more secure before publishing</li>
+			  			</ul>
+			  		</li>	
+			  		<li>Version 4.1 (Updated 3/6/2019)
+			  			<ul>
+			  				<li>Redesigned the email function to be more user-friendly including a simplified button-style recipient list and added a "Search User" feature to add more Tracker users and groups to the recipient list</li>
+			  				<li>Fixed a bug that was causing the checkout comment and time fields to be erased while another user was typing</li>
+			  				<li>Added Icon index to info modal</li>
+			  				<li>Added parcel numbers to the card for each address entered</li>
+			  				<li>Fixed an error in the chat message display that was preventing the box from auto scrolling to the bottom when a new message appeared</li>
+			  				<li>Added a 'No Chats' banner inside chat box when there are no messages</li>
+			  				<li>Removed automated activity messages from the chat box and added an 'Activity Log' to simplify the view</li>
+			  				<li>Added tooltip text to icons that do not have any accompanying text when a user hovers over it</li>
+			  				<li>Fixed a bug that prevented a card from displaying if there was a special character causing a page error</li>
+			  				<li>Fixed a bug that was displaying the workflow entry time incorrectly due to Daylight Savings Time</li>
+			  				<li>Updated default department for building review staff to Commercial Building Review</li>
+			  			</ul>
+			  		</li>		  		
+			  		<li>Version 4.0.0 (Updated 12/19/18)
+			  			<ul>
+			  				<li>Updated to Node application</li>
+			  				<li>Changed color scheme</li>
+			  				<li>Added instant chat feature</li>
+			  				<li>Add Multiple addresses to single card</li>
+			  				<li>Added in-page email notification</li>
+			  				<li>Added Application Services and Commercial Building as available departments</li>
+			  			</ul>
+			  		</li>
+			  	</ul></p>
+			  <p>If you want to know more about a feature, please contact the iTeam.</p>
+			</div>
+
+			<div class="accordion"><i class="fas fa-plus"></i><b>Tracker Icons</b>
+			</div>
+			<div class="accordion-panel">
+			  <p>The use of icons in Tracker helps us tell a lot about an individual customer without the use of screen real estate. While we tried to add text to each button next to the icons, some icons still stand alone. Below is a list of icons used in Tracker and what they refer to.</p>
+			  <table class="icon-list"><tr><th>Icon</th><th>Meaning</th></tr>
+			  	<tr><td><i class="far fa-clock" aria-hidden="true"></i></td><td>Waiting for Department</td></tr>
+			  	<tr><td><i class="far fa-handshake" aria-hidden="true"></i></td><td>With Department</td></tr>
+			  	<tr><td><i class="fa fa-home real-property-icon" aria-hidden="true"></i></td><td>Real Property Review</td></tr>
+			  	<tr><td><i class="fas fa-warehouse building-icon" aria-hidden="true"></i></td><td>Commercial Building Review</td></tr>
+			  	<tr><td><i class="fa fa-building building-icon" aria-hidden="true"></i></td><td>Residential Building Review</td></tr>
+			  	<tr><td><i class="fa fa-truck site-icon" aria-hidden="true"></i></td><td>Site Development Review</td></tr>
+			  	<tr><td><i class="fa fa-map land-use-icon" aria-hidden="true"></i></td><td>Land Use Review</td></tr>
+			  	<tr><td><i class="fa fa-fire fire-icon" aria-hidden="true"></i></td><td>Fire Review</td></tr>
+			  	<tr><td><i class="fa fa-car traffic-icon" aria-hidden="true"></i></td><td>Traffic Review</td></tr>
+			  	<tr><td><i class="fa fa-history historic-icon" aria-hidden="true"></i></td><td>Historic Review</td></tr>
+			  	<tr><td><i class="far fa-id-card permit-specialist-icon" aria-hidden="true"></i></td><td>Permit Specialist</td></tr>
+			  	<tr><td><i class="fas fa-id-card-alt" aria-hidden="true"></i>*</td><td>Application Services</td></tr>
+			  </table>
+			  <p>* Default color changed for visibility purposes</p>
+			</div>
+			<div class="accordion"><i class="fas fa-plus"></i><b>Node Server Application</b>
+			</div>
+			<div class="accordion-panel">
+			  <p>The main focus of the latest update was to improve the performance all-around, from lightening the strain on the Accela API servers to simplifying what the users are computing on the browser. We were able to make huge performance gains by updating the entire Tracker application to a "Server-side" application using the popular Node.js framework. What this means is that the data being retrieved from the Accela API's are only grabbed once and stored on the server for users interact with. Previously, Tracker would grab that same data multiple times for EVERY user logged in.</p><img id="img-server" src="server.png"><br>
+			  <p>Having this data stored on the server makes the interaction much faster, making loading times quicker and ultimately a better experience. Much of the professional web applications you see on the web are based on similar ideas, giving us a lot of options to implement a lot of other cool features similar to the ones below.</p>
+			</div>
+
+			<div class="accordion"><i class="fas fa-plus"></i><b>Styling Changes</b>
+			</div>
+			<div class="accordion-panel">
+			  <p>You may have noticed the change in styles we are using for the latest version of Tracker. We went with the modern flat design elements that help make the page look sleek and fresh while maintaining that simple "Easy-to-use" interface. Less shadows, less gradients and consistent color schemes help bring the page out of the 90's and into the modern day practices for web design.</p><img id="img-version3" src="version3.png"><img id="img-version4" src="version4.png"><br>
+			  <p>The color schemes have also been redesigned. Instead of the over-powering blue background, we updated tracker with a smoother gray so the users arent blinded by the bright colors. We mirrored the color scheme from Accela's Version 10 "Oxygen UI" to help keep the consistency between products. If you have any ideas on how you would like to see the design changed in the future, send the iTeam your feedback <a class="iteam-feedback" href="">here</a>.</p>
+			</div>
+			
+
+			<div class="accordion"><i class="fas fa-plus"></i><b>Instant Chat</b>
+			</div>
+			<div class="accordion-panel">
+			  <p>Version 4 also brings one of the most exciting features we have developed. Once logged in, you now have the ability to chat instantly with other users that are logged into Tracker. In the right column, simply type a message in the text box and hit "Enter" or the "Send" button and your message will be sent to all the logged in users. This is ideal for staff to quickly send messages that are too minor for an email.</p><br>
+			  <img src="chat.png">
+			  <p><b>How do I know who is logged in?</b><br>On the top of the Chat column you will see a card labeled "Current Users." Clicking on the header will display a list of users color-coded by their respective departments. Hovering over the icons will display their full name. Your name in the chat box will also be that color when a message is typed.</p><br>
+			  <p><b>Will my chats be stored?</b><br>Currently, these chats will NOT be stored. They will exist in the chat box until the page is refreshed or reloaded. To help staff, a message counter was added to the header and a timestamp from the last time the page was refreshed or loaded.</p><br>
+			  <p><b>What is this 'Activity Log'?</b><br>We have also added in some automated messages when an action occurs in Tracker to see what other users are working on. For example, if the reception desk routes a new customer for review a message will appear in the box on the top of the chat column labeled 'Activity Log' saying "George has routed WR19-0001 for review...". These messages will appear for all routing or workflow actions. Since we recognized that some staff may prefer not to see these messages, the activity log is defaulted to be closed unless the user expands it.</p><br>
+			  <p><b>But I miss the departed column. Where did it go?</b><br>While sometimes useful, we saw that the departed column was cluttering the page towards the end of the day (Looking at 30 cards in the same column is scary!). We decided that the chat box would be more beneficial to most users. Don't worry, the departed column is just hidden by default. You can toggle the departed and chat columns by clicking the switch in the header.</p>
+			</div>
+
+			<div class="accordion"><i class="fas fa-plus"></i><b>Tracker Emails</b>
+			</div>
+			<div class="accordion-panel">
+			  <p>Before version 4, Tracker had an email function that opened up an outlook window when the reception desk routed someone for review. Now, we have built that email directly into the page. When reception routes a customer for review, a form will pop up containing all of the customer information. The reception desk then has the ability to modify the text with any special notes they wish to add about the customer and send the email. The email will be sent from the special Tracker Gmail account, and no longer uses outlook to send.</p><br><p>To send a custom email or an email outside of the process, the blank email form can also be accessed by clicking the mail icon in the header.</p>
+			</div>
+
+			<div class="accordion"><i class="fas fa-plus"></i><b>Anything Else?</b>
+			</div>
+			<div class="accordion-panel">
+			  <p>Congratulations, you read the information section! We applaud you!<br><img src="clapping.gif"><br>But seriously, if you have any questions please contact the iTeam.</p><br>
+			  <p>Click <a class="hidden-clicker">Here</a> to see one more cool feature!</p>
+			</div>
+		</article>
+		<article class="modal email-modal">
+			<div class="close"><i class="fa fa-times" aria-hidden="true"></i></div>
+			<header class="modal-header">
+				<h2>Send Email</h2>
+			</header>
+			<p>Send an email directly from Tracker! Automated emails will populate below. To add a staff member, search for their email below and select them from the list. Their name will appear in the recipient list below.</p>
+			<div class="email-search-container">
+				<div class="email-search-field">
+					<!-- <label for="email-search">Add Email:</label> -->
+					<input type="text" placeholder="Search for a user..." id="email-search-input" autocomplete="off">
+					<!-- <div class="btn email-search-clear">Clear</div> -->
+				</div>
+				<div class ="email-search-results">
+					<ul>
+					</ul>
+				</div>
+			</div>
+			<p>
+			    <div class="email-to-list">
+			    	<h3>Recipient List (<span class="recipient-count">0</span>):</h3>
+			    	<ul>
+			    	</ul>
+			
+			    </div>
+				<input type="text" placeholder="Subject:" id="email-subject">
+				<textarea placeholder="Additional Comments:" rows="20" id="email-body"></textarea>
+			</p>
+		    <button class="btn clear-btn"><i class="fa fa-trash" aria-hidden="true"></i> <span>Clear</span></button>
+		    <button class="btn submit-btn"><i class="fa fa-arrow-right" aria-hidden="true"></i> Submit</button>
+		</article>
+		<!-- <article class="modal stats-modal">
+			<div class="close"><i class="fa fa-times" aria-hidden="true"></i></div>
+			<header class="modal-header">
+				<h2>Statistics</h2>
+			</header>
+			<div class="stats-modal-div">Customers today: <span class="stat customers-today-stat"></span></div>
+			<div class="stats-modal-div">Currently waiting: <span class="stat currently-waiting-stat"></span></div>
+			<div class="stats-modal-div">Current average wait time: <span class="stat average-wait-stat"></span></div>
+			<div class="stats-modal-div">Customers departed: <span class="stat customers-departed-stat"></span></div>
+		</article> -->
+	</section>
+	<header class="site-header">
+		<img class="logo" src="logo.png" alt="Tracker">
+		<h1>Welcome to Tracker, please log in...</h1>
+		<nav class="menu">
+			<i class="fa fa-bars mobile-menu-open" aria-hidden="true"></i>
+			<ul>
+				<li>					
+					<div class="onoffswitch">
+					    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+					    <label class="onoffswitch-label" for="myonoffswitch">
+					        <span class="onoffswitch-inner departed-toggle"></span>
+					        <span class="onoffswitch-switch departed-toggle"></span>
+					    </label>
+					</div>
+				</li>
+				<li class="info-modal-opener" data-tooltip="true" data-tooltip-pos="bottom" data-tooltip-text="Information">
+					<i class="fa fa-info" aria-hidden="true"></i></a>
+				</li>
+				<li class="email-icon" data-tooltip="true" data-tooltip-pos="bottom" data-tooltip-text="Send Email">
+					<i class="fas fa-envelope"></i>
+				</li>
+				<li data-tooltip="true" data-tooltip-pos="bottom" data-tooltip-text="Launchpad">
+					<a href="http://pds/"><i class="fa fa-rocket" aria-hidden="true"></i></a>
+				</li>
+				<!-- <li class="calendar-modal-opener" data-tooltip="true" data-tooltip-pos="bottom" data-tooltip-text="Change date">
+					<i class="fa fa-calendar" aria-hidden="true"></i>
+				</li> -->
+				<li class="department-icon" data-tooltip="true" data-tooltip-pos="bottom" data-tooltip-text="Change department">
+					<i class="fa fa-user" aria-hidden="true"></i>
+				</li>
+				<!-- <li class="stats-modal-opener" data-tooltip="true" data-tooltip-pos="bottom" data-tooltip-text="Stats">
+					<i class="fa fa-pie-chart" aria-hidden="true"></i>
+				</li> -->
+				<li class="login-modal-opener" data-tooltip="true" data-tooltip-pos="bottom" data-tooltip-text="Log in">
+					<i class="fas fa-sign-in-alt" aria-hidden="true"></i>
+				</li>
+
+				
+				<!-- <li data-tooltip="true" data-tooltip-pos="bottom" data-tooltip-text="Search">
+					<div class="search-box">
+						<input type="search" autocomplete="on">
+						<i class="fa fa-search" aria-hidden="true"></i>
+					</div>
+				</li> -->
+			</ul>
+		</nav>
+	</header>
+	<div class="wrap">
+		<main class="three-buckets">
+			<section class="bucket reception-bucket">
+				<header class="bucket-header">
+					<h2>Reception</h2>
+				</header>
+				<button class="btn new-drop-btn"><i class="fa fa-plus" aria-hidden="true"></i> New</button>
+				<div class="new-drop-area"></div>
+				<div class="wait-drop-area"></div>
+			</section>
+			<section class="bucket review-bucket">
+				<header class="bucket-header">
+					<h2>Review</h2>
+				</header>
+				<div class="wait-drop-area"></div>
+				<div class="with-drop-area"></div>
+			</section>
+			<section class="bucket chat-bucket">
+				<div class="chat-bucket">
+						<header class="bucket-header">
+						<h2>Chat</h2>
+					</header>
+					<div class="activity-log drop departed-drop">
+						<header class="drop-header chat-drop-header"><h3>Activity Log</h3></header>
+						<div class="drop-area">
+						<ul></ul>
+						</div>
+					</div>
+					<div class="logged-in-users drop departed-drop">
+							<header class="drop-header chat-drop-header"><h3><span class="chat-users">(0)</span> Current Users</h3></header>
+							<div class="drop-area">
+							<ul></ul>
+						</div>
+						</div>
+					<div class="chat-drop-area drop departed-drop open">
+						<header class="drop-header chat-drop-header"><h3>(<span class="chat-message-count">0</span>) Messages as of <time class="last-refresh-timer"></time></h3></header>
+						<div class="drop-area">
+						<div class="chat-messages"><div id="no-chats"><i class="far fa-comments"></i><br>There are no chats right now. Type something below to send a message!</div><ul></ul></div>
+						<textarea id="chat-message-box" placeholder="Write a message..."></textarea>
+						<div class="drop-area action-area">
+						<button class="btn clear-btn"><i class="fa fa-trash" aria-hidden="true"></i> <span>Clear Messages</span></button>
+						<button class="btn submit-btn chat-submit-btn"><i class="fa fa-arrow-right" aria-hidden="true"></i> <span>Send</span></button>
+					</div>
+					</div>
+					</div>
+					<!--	<hr>
+					 <header class="bucket-header stat-bucket">
+						<h2>Stats</h2>
+					</header>
+					<div class="stat-drop-area drop departed-drop open">
+						<header class="drop-header stat-drop-header"><h3>Daily Statistics</h3></header>
+						<div class="drop-area stat-content">
+							<div class="chart-wrapper">
+								<canvas id="stat-chart"></canvas>
+							</div>
+							<div class="chart-wrapper">
+								<div class="stat-item" id="stat1">
+								<span data-tooltip="true" data-tooltip-pos="bottom" data-tooltip-text="Customers Today">42</span>
+							</div>
+							<div class="stat-item" id="stat2"><span data-tooltip="true" data-tooltip-pos="bottom" data-tooltip-text="Longest Wait">2:15</span></div>
+							</div>
+							
+						</div>
+					</div> -->
+					<div class="depart-drop-area"></div>
+				</div>
+			</section>
+				<section class="bucket departed-bucket">
+						<header class="bucket-header">
+							<h2>Departed</h2> 
+						</header>
+						<div class="depart-drop-area"></div>
+					</div>
+				</section>
+			</section>
+			
+		</main>
+		
+	</div>
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.0/socket.io.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+	<script src="https://js.arcgis.com/3.18/"></script>
+
+	<!-- <script async src="https://use.fontawesome.com/620420abf1.js"></script> -->
+	<script src="./app.js"></script>
+</body>
+</html>

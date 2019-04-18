@@ -1,0 +1,32 @@
+@media only screen {
+	@import 'presets/presets';
+
+	@import 'global/settings';
+	@import 'global/input';
+	@import 'global/button';
+	@import 'global/img';
+	@import 'global/a';
+	@import 'global/h';
+	@import 'global/hr';
+
+	@import 'layout/header';
+	@import 'layout/main';
+	@import 'layout/footer';
+
+	@import 'object/drop';
+	@import 'object/bucket';
+	@import 'object/icons';
+	@import 'object/modal';
+	@import 'object/standard-comments';
+	@import 'object/comment-area';
+	@import 'object/tooltip';
+	@import 'object/edit-box';
+	@import 'object/chat';
+
+	@import 'view/history-view';
+	@import 'view/not-logged-in';
+}
+
+@media only print {
+	@import 'view/print';
+}

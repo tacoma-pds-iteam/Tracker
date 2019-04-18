@@ -1,0 +1,87 @@
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  49% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+}
+@keyframes err {
+  from {
+    background: rgba($red, .5);
+  }
+  to {
+    background: transparent;
+  }
+}
+@keyframes load {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes longWait {
+  from {
+    color: $black;
+  }
+  to {
+    color: $red;
+  }
+}
+@keyframes nope {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(.6rem); }
+  50% { transform: translateX(-.5rem); }
+  75% { transform: translateX(.35rem); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes notification {
+  from {
+    color: $white;
+  }
+  to {
+    color: $red;
+  }
+}
+.nope {
+  animation: .5s nope;
+}
+.err {
+  animation: 1s err;
+}
+.loader {
+  text-align: center;
+  padding: 0 .25rem;
+  .fa-circle:first-of-type {
+    animation: 1s load ease-out alternate infinite;
+  }
+  .fa-circle:nth-of-type(2) {
+    animation: 1s .3s load ease-out alternate infinite;
+  }
+  .fa-circle:nth-of-type(3) {
+    animation: 1s .6s load ease-out alternate infinite;
+  }
+}
+
+@keyframes slideIn {
+  0%   { left: 107%; }
+  100% { left: 66%; }
+}
+@keyframes slideOut {
+  0%   { left: 66%; }
+  100% { left: 107%; }
+}
+
+
+.notification {
+  animation: 1s .6s notification ease-out alternate infinite;
+}

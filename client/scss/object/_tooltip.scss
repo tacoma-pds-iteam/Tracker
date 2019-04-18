@@ -1,0 +1,65 @@
+*[data-tooltip='true'] {
+  position: relative;
+  &:after {
+    content: attr(data-tooltip-text);
+    position: fixed;
+    top: -1000vh;
+    width: 5rem;
+    font-size: .75rem;
+    color: $white;
+    text-align: center;
+    padding: .25rem .5rem;
+    border-radius: .5rem;
+    z-index: 99;
+    box-shadow: $def-shadow;
+    opacity: 0;
+    background: linear-gradient(
+      to right,
+      rgba($lightblue, .75),
+      rgba($lightblue, .9),
+      rgba($lightblue, .9),
+      rgba($lightblue, .75)
+    );
+    transition: {
+      property: transform, opacity;
+      duration: .2s;
+      delay: .2s;
+      timing-function: $cubic;
+    }
+    &[data-tooltip-pos='top'] {
+      transform: translate(0, 1rem);
+    }
+    &[data-tooltip-pos='left'] {
+      transform: translate(1rem, 0);
+    }
+    &[data-tooltip-pos='right'] {
+      transform: translate(-1rem, 0);
+    }
+    &[data-tooltip-pos='bottom'] {
+      transform: translate(0, -1rem);
+    }
+  }
+  &:hover:after {
+    position: absolute;
+    top: 3rem;
+    left: -1.5rem;
+    opacity: 1;
+    transform: translate(0, 0);
+    &[data-tooltip-pos='top'] {
+      top: -3rem;
+      left: -1.5rem;
+    }
+    &[data-tooltip-pos='left'] {
+      top: 0;
+      left: -6rem;
+    }
+    &[data-tooltip-pos='right'] {
+      top: 0;
+      left: 6rem;
+    }
+    &[data-tooltip-pos='bottom'] {
+      top: 2rem;
+      left: -1.5rem;
+    }
+  }
+}

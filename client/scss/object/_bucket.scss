@@ -1,0 +1,73 @@
+.bucket {
+  .bucket-header {
+    color: $black;
+    h2 {
+      text-align: center;
+      font-weight: 400;
+    }
+  }
+  @include breakpoint ($tablet) {
+    &.grid-bucket {
+      .drop-container {
+        display: grid;
+        grid: {
+          column-gap: 1rem;
+          template: {
+            columns: repeat(3, 1fr);
+            rows: auto;
+          }
+        }
+      }
+    }
+  }
+}
+.ie {
+  .bucket.grid-bucket .drop-container {
+    @include breakpoint ($tablet) {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      .drop {
+        max-width: 32%;
+      }
+    }
+  }
+}
+
+.bucket {
+  position: relative;
+  .new-drop-btn {
+    position: absolute;
+    font-size: 1rem;
+    top: 0;
+    left: .5rem;
+  }
+}
+.reception-bucket, .departed-bucket, .chat-bucket, .review-bucket .bucket-header {
+  display: none;
+  @include breakpoint($desktop) {
+    display: initial;
+  }
+}
+.review-bucket .with-drop-area {
+  padding-top: 1rem;
+  border-top: .25rem solid rgba($black, .5);
+}
+.reception-bucket .new-drop-area {
+  padding-bottom: 1rem;
+  border-bottom: .25rem solid rgba($black, .5);
+  margin-bottom: 1rem;
+}
+.new-drop-area:empty, .wait-drop-area:empty, .with-drop-area:empty, .depart-drop-area:empty {
+  display: none;
+}
+
+.departed-bucket {
+    display: none;
+   .drop-sub-header, .drop-sub-header2 {
+    display: none;
+   }
+   .add-dep-btn {
+    display: none !important;
+   }
+}

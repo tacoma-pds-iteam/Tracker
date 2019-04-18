@@ -1,0 +1,430 @@
+.drop {
+  background: $drop-bg;
+  margin: 0 0 1rem;
+  padding: 1rem;
+  box-shadow: 0 0 7px 0 rgba(0,6,18,.42);
+  overflow: hidden;
+  min-width: 10%;
+  width: 100%;
+  -webkit-transform: translateZ(0) !important;
+  backface-visibility: hidden;
+  transition: {
+    property: max-height, margin, padding, opacity, transform, box-shadow;
+    duration: .5s;
+    timing-function: $cubic;
+  }
+  &:hover {
+    box-shadow: 0 .5rem 1rem rgba($black, .25);
+    transform: scale(1.05) translateZ(0);
+    transition: {
+      property: transform, box-shadow;
+      duration: .2s;
+      timing-function: $cubic;
+    }
+  }
+  &.pre {
+
+  }
+  &.post {
+    max-height: 28rem;
+    margin: 0 0 1rem;
+    padding: 1rem;
+    opacity: 1;
+  }
+}
+.drop-header {
+  margin: -1rem -1rem .5rem;
+  padding: .25rem .5rem;
+  background: $drop-header-bg;
+  color: rgba($white, .9);
+  input {
+    background-color: $white;
+    padding:.1em;
+  }
+  h3 {
+    padding-bottom: .2rem;
+  }
+}
+.content-area {
+  &.active {
+    padding: .5rem 0;
+    &:not(:first-of-type) {
+      border-top: .125rem solid rgba($blue, .5);
+    }
+  }
+  &:after {
+    content: '';
+    clear: both;
+    display: table;
+  }
+}
+.ie .bucket.grid-bucket .drop-container .drop {
+  flex: 30% 1;
+}
+.inactive .drop {
+  display: none;
+}
+
+
+.drop {
+  h4 {
+    background: transparent;
+  }
+  .customer-name {
+    &::placeholder {
+      color: rgba($white, .75);
+    }
+  }
+  .loader {
+    display: inline-block;
+    &.comment-area {
+      display: block;
+    }
+  }
+  &.open {
+    .drop-area {
+      padding: .5rem 0;
+      max-height: 18rem;
+      overflow: auto;
+      padding-top: .25rem;
+      border-top: .125rem solid rgba($blue, .5);
+      margin-top: .25rem;
+      pointer-events: inherit;
+    }
+
+    .additional-addresses {
+      border:0;
+      padding-top:0;
+      margin-top:0;
+    }
+  }
+}
+
+.additional-addresses {
+  width:93%;
+  margin:auto auto;
+}
+.waiting-for-me, .with-me {
+  .check-in-btn {
+    display: initial !important;
+  }
+}
+.with-me, .waiting-for-reception.waiting-for-me {
+  .drop-header {
+    max-height: 22rem;
+  }
+}
+.waiting-for-reception.waiting-for-me {
+  .drop-sub-header2 {
+    visibility: visible;
+  }
+}
+.with-me {
+  .drop-sub-header2 {
+    display: none;
+  }
+}
+.new-drop {
+  .drop-area {
+    padding: .5rem 0;
+    max-height: 18rem;
+    overflow: auto;
+    padding-top: .25rem;
+    border-top: .125rem solid rgba($blue, .5);
+    margin-top: .25rem;
+    pointer-events: inherit;
+  }
+  .address-title-row {
+    margin-bottom: .5rem;
+    .btn {
+      text-align: center;
+      margin-left: .5rem;
+    }
+    span {
+      display: inline-block;
+      width: calc(100% - 10rem);
+      font-weight: 400;
+    }
+  }
+  .address-row {
+    display: flex;
+    .add-num {
+      flex-basis: 10%;
+      flex-grow: 1;
+    }
+    .add-street {
+      margin: 0 .5rem;
+      flex-basis: 50%;
+      flex-grow: 5;
+    }
+    .par-num {
+      flex-basis: 35%;
+      flex-grow: 3;
+    }
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+  }
+  .address-results-row {
+    .btn {
+      margin: .125rem;
+    }
+  }
+  .address-array, .owner-array {
+    display: none;
+  }
+  .submit {
+    float: right;
+  }
+}
+.existing-drop, .departed-drop {
+  h4 {
+    padding: 0;
+    margin: 0;
+  }
+  .record-number, .drop-header {
+    cursor: pointer;
+  }
+}
+.existing-drop, .departed-drop {
+  .current-wait-time {
+    time {
+      font-weight: bold;
+    }
+    &.long-wait {
+      animation: .5s longWait alternate infinite;
+    }
+    @include breakpoint($tablet) {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+  .drop-area {
+    max-height: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: {
+      property: border, padding, max-height;
+      duration: .2s;
+      timing-function: $cubic;
+    }
+  }
+}
+.drop-header {
+  max-height: 2.5rem;
+  overflow: hidden;
+  input {
+    color: $white;
+    font-size: 1rem;
+    background: rgba($white, .1);
+  }
+  .record-number {
+    display: inline-block;
+    width: 8rem;
+  }
+  .icons {
+    float: right;
+    .with, .wait {
+      i {
+        width: 1.5rem;
+        text-align: center;
+        margin-right: .5rem;
+      }
+    }
+    .btn {
+      text-align: center;
+      display: none;
+      background: $green;
+    }
+  }
+  hr {
+    border: 1px solid lightslategray;
+  }
+}
+.drop-sub-header {
+  margin: .75rem 0 .5rem;
+  textarea {
+    font-size: 1rem;
+    color: $white;
+    resize: none;
+    background: rgba($white, .1);
+    border-radius: 0;
+  }
+  .time-entry-wrap {
+    position: relative;
+    input {
+      padding: .25rem .5rem;
+      background: rgba($white, .1);
+    }
+    &:before {
+      content: '\f017';
+      font-family: "Font Awesome 5 Free";
+      position: absolute;
+      top: .5rem;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      opacity: 1;
+      color: rgba($white, .9);
+      transition: {
+        property: opacity, left;
+        duration: .2s;
+        timing-function: $cubic;
+      }
+    }
+    &:hover {
+      &:before {
+        left: -3rem;
+        opacity: 0;
+      }
+    }
+    &.hide-icon {
+      &:before {
+        top: -1000vh;
+      }
+    }
+  }
+  .btn {
+    display: none;
+  }
+  
+  @include breakpoint ($tablet) {
+    display: grid;
+    grid: {
+      template: {
+        rows: auto auto;
+        columns: 1fr 3rem;
+        areas:
+          "comment standardComments"
+          "comment timeEntry";
+      }
+      gap: .25rem;
+    }
+    textarea {
+      grid-area: comment;
+    }
+    .standard-comments {
+      grid-area: standardComments;
+      text-align: center;
+    }
+    .time-entry-wrap {
+      grid-area: timeEntry;
+    }
+    .department {
+      vertical-align: top;
+      display: inline-block;
+    }
+    .btn {
+      display: inherit;
+    }
+  }
+}
+.information-area {
+  position: relative;
+}
+.departed-drop {
+  .drop-header {
+    margin: -1rem;
+    transition: {
+      property: margin-bottom;
+      duration: .2s;
+      timing-function: $cubic;
+    }
+  }
+  &.open {
+    .drop-header {
+      margin: -1rem -1rem .5rem;
+    }
+  }
+}
+.code-enforcement:not(:empty) {
+  background: $red;
+  color: rgba($white, .9);
+  margin: .5rem 0;
+  padding: .25rem .5rem .125rem .5rem;
+  cursor: pointer;
+  max-height: 2rem;
+  overflow: hidden;
+  transition: {
+    property: max-height;
+    duration: .5s;
+    timing-function: $cubic;
+  }
+  .code-area-header {
+    i {
+      width: 1.5rem;
+    }
+    span {
+      display: inline-block;
+      width: calc(100% - 3rem);
+      padding-bottom: 1rem;
+    }
+  }
+  ul {
+    margin: 0;
+    padding-left: 1.5rem;
+    list-style-type: circle;
+  }
+  &.open {
+    max-height: 11rem;
+  }
+}
+.department-select-row {
+  margin-top: .5rem;
+  display: flex;
+  flex-wrap: wrap;
+  .department {
+    flex-basis: 40%;
+    flex-grow: 1;
+    margin: .125rem;
+    border-radius: 0;
+    &.close-department.active {
+      background: $red;
+    }
+  }
+}
+.checkmark-btn {
+  float:right;
+  display:none;
+}
+
+// Styles for additional department area
+.comment-area {
+  header {
+    display:flex;
+    h4 {
+      flex:75%;
+      text-align:left;
+      color:#000;
+      i {
+        color:#000;
+      }
+    }
+    .btn-content {
+      flex:25%;
+      .add-dep-btn {
+        display:none;
+      }
+    }
+  }
+}
+
+.reception-add-review {
+  display:none;
+  .department-select-row {
+    display: flex;
+  }
+}
+.drop-sub-header2 {
+  .btn {
+    color: $white;
+    background-color: lightslategray;
+    &.active {
+      color: $white;
+      background-color: $green;
+
+    }
+  }
+}

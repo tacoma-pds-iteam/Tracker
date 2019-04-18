@@ -1,0 +1,261 @@
+.modal {
+  position: absolute;
+  top: -1000vh;
+  left: 1rem;
+  width: calc(100% - 2rem);
+  background: transparent;
+  z-index: 4;
+  padding: 1em;
+  box-shadow: $def-shadow;
+  opacity: 0;
+  transform: scale(1.25);
+  transition: {
+    property: transform, opacity;
+    duration: .5s;
+    timing-function: $cubic;
+    delay: .1s;
+  }
+  h2 {
+    padding-bottom: .25rem;
+    border-bottom: .25rem solid rgba($blue, .9);
+    margin-bottom: .25rem;
+  }
+  input, select, textarea {
+    font-size: 1.25rem;
+    margin: 0 0 1rem;
+  }
+  &.open {
+    top: 15vh;
+    background: rgba($white, .9);
+    opacity: 1;
+    transform: scale(1);
+  }
+  &.out {
+    top: 100vh;
+    background: transparent;
+    opacity: 0;
+    transform: scale(1.25);
+    pointer-events: none;
+  }
+  &.loader-modal {
+    background: transparent;
+    box-shadow: none;
+    .loader {
+      margin: 0 auto;
+      width: 51px;
+    }
+  }
+  .close {
+    z-index: 5;
+    position: absolute;
+    text-align: right;
+    right: 1em;
+    font-size: 1.5rem;
+    color: rgba($black, .5);
+    cursor: pointer;
+    transition: {
+      property: color;
+      duration: .5s;
+      timing-function: $cubic;
+    }
+    &:hover {
+      color: $black;
+    }
+  }
+  .btn {
+    font-size: 1.25rem;
+  }
+  @include breakpoint($tablet) {
+    left: 30%;
+    width: 40%;
+  }
+}
+
+
+
+.modals {
+  .behind {
+    position: fixed;
+    top: -100vh;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 3;
+    cursor: pointer;
+    opacity: 0;
+    background: linear-gradient(
+      to right,
+      rgba($black, .5),
+      transparent,
+      transparent,
+      rgba($black, .5)
+    );
+    transition: {
+      property: opacity;
+      duration: .5s;
+      timing-function: $cubic;
+    }
+    &.open {
+      top: 0;
+      opacity: 1;
+    }
+  }
+}
+
+
+.login-modal {
+  .login-submit-btn {
+    float: right;
+    font-size: 1.5rem;
+    i {
+      text-shadow: none;
+      &:first-of-type {
+        animation: 1s load infinite alternate;
+      }
+      &:nth-of-type(2) {
+        animation: 1s .25s load infinite alternate;
+      }
+      &:nth-of-type(3) {
+        animation: 1s .5s load infinite alternate;
+      }
+    }
+  }
+}
+.stats-modal {
+  .stat {
+    float: right;
+  }
+}
+
+.info-modal {
+    overflow-y: scroll;
+    max-height: 70%;
+    .accordion {
+        background-color: $gray;
+        color: $black;
+        cursor: pointer;
+        padding: 1rem;
+        margin-top:.5rem;
+        width: 100%;
+        text-align: left;
+        border: none;
+        outline: none;
+        transition: 0.4s;
+        i {
+          padding-right: 1rem; 
+        }
+
+
+    }
+
+     /* Style the accordion panel. Note: hidden by default */
+    .accordion-panel {
+        background-color: $gray;
+        padding: .5rem 1rem;
+        display: none;
+        overflow: hidden;
+        .hidden-clicker {
+          cursor: pointer;
+          color: green;
+        }
+    }
+    img {
+      width: 50%;
+      max-height:50%;
+      box-shadow: 0 0 7px 0 rgba(0,6,18,.42);
+
+    }
+    #img-server {
+      background: $white;
+    }
+    #img-version3, #img-version4 {
+        display: inline-block;
+    }
+    .icon-list {
+      width: 100%;
+      text-align: left;
+      font-size: larger;
+      padding-left: 5%;
+      td:first-of-type, th:first-of-type {
+        text-align: center;
+      }
+      .fa-id-card-alt {
+        color: black;
+      }
+    }  
+  }
+
+  .error-message {
+    height: 3rem;
+    width: 45rem;
+    position: absolute;
+    margin: 2rem 0 0 39rem;
+    background-color: lighten($red, 25%);
+    z-index: 10;
+    text-align: center;
+    font-size: 18pt;
+    display: none;
+    &:hover {
+      background-color: lighten($red, 10%);
+      cursor: pointer;
+    }
+  }
+
+  .email-modal {
+    .email-search-container {
+      display: inline-block;
+      width: 100%;
+      vertical-align: middle;
+      .btn {
+        font-size: 1rem;
+      }      
+      .email-search-field {
+        input {
+          width: 75%;
+          margin-left: 12.5%;
+        }
+      }
+      .email-search-results {
+        overflow: scroll;
+        ul {
+        }
+        .email-search-result {
+          margin: .25rem;
+          width: 100%;
+          margin-left: -1rem;
+          list-style-type: none;
+          text-align: left;
+        }
+      }
+    }
+    .email-to-list {
+      ul {
+        list-style-type: none;
+        columns: 3;
+        column-gap: 1rem;
+      }
+      li {
+        text-align: center;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        cursor: pointer;
+        .email-recipient {
+          background-color: $blue;
+          color: $white;
+          padding: 5px;
+          box-shadow: $def-shadow;
+        }
+        .email-close {
+          position: absolute;
+          margin: -20px 0 0 -5px;
+          color: black;
+          font-size: 16pt;
+          cursor: pointer;
+          &:hover {
+            font-size: 18pt;
+          }
+
+        }
+      }
+    }
+  }
